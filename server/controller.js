@@ -18,6 +18,9 @@ module.exports = {
         let randomFortune = fortunes[randomIndex];
       
         res.status(200).send(randomFortune);
-    }
+    },
 
+    const positiveDatabase = ["Be positive. Be true. Be kind.", "A small positive thought can change your whole day.", " Positive people change the world, while negative people keep it the way it is.", "Every problem has in its hands a gift for you", "Failure is a good opportunity to start over with more intelligence"]
+
+    
 }
