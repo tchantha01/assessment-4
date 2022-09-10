@@ -1,9 +1,8 @@
 
 const complimentBtn = document.getElementById("complimentButton")
 const fortuneBtn = document.getElementById("fortuneButton")
-const getParamsSubmit = document.getElementById("getParamsSubmit")
-const positiveInput = document.getElementById("params-input")
 
+const baseURL = "http://localhost:4000/api/compliment"
 
 const getCompliment = () => {
     axios.get("http://localhost:4000/api/compliment/")
@@ -25,8 +24,3 @@ const getFortune = () => {
 
 fortuneBtn.addEventListener('click', getFortune)
 
-getParamsSubmit.addEventListener('click', () => {
-    axios
-        .get(`http://localhost:4000/api/compliment/${positiveInput.value}`)
-        .then(res => addToView([res.data]))
-});

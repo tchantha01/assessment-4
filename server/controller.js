@@ -1,3 +1,7 @@
+let positiveDatabase = require('./db.json')
+let globalID = 6
+
+
 module.exports = {
 
     getCompliment: (req, res) => {
@@ -20,7 +24,54 @@ module.exports = {
         res.status(200).send(randomFortune);
     },
 
-    const positiveDatabase = ["Be positive. Be true. Be kind.", "A small positive thought can change your whole day.", " Positive people change the world, while negative people keep it the way it is.", "Every problem has in its hands a gift for you", "Failure is a good opportunity to start over with more intelligence"]
+    getMessage: (req, res) => {
+        res.status(200).send(positiveDatabase)
+        
+    },
+    deleteMessage: (req, res) => {
+        console.log(req.params.id)
+        let index = positiveDatabase.findIndex(element => element.id === +req.params.id)
+        house.splice(index, 1)
+        res.status(200).send(positiveDatabase)
+        
+    },
+    createMessage: (req, res) => {
+        console.log(req.body)
+        const { address, price, imageURL} = req.body
+        let newHouse = {
+            id: globalID,
+            address, 
+            price,
+            imageURL
+        }
+        house.push(newHouse)
+        res.status(200).send(house)
+        globalID++
+        
+    },
+    updateHouse: (req, res) => {
+        console.log(req.params.id)
+        console.log(req.body)
+        let {id} = req.params
+        let {type} = req.body
+        let index = house.findIndex(element => element.id === +req.params.id)
 
-    
+        if(house[index].price <= 10000 && type === 'minus'){
+            house[index].price = 0
+            res.status(200).send(house)
+
+        } else if(type === 'plus') {
+            house[index].price += 10000
+            res.status(200).send(house)
+
+        } else if(type === 'minus') {
+            house[index].price -= 10000
+            res.status(200).send(house)
+        }else{
+            res.status(400)
+        }
+
+
+}        
+
 }
