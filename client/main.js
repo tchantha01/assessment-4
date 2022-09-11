@@ -1,7 +1,7 @@
 const complimentBtn = document.getElementById("complimentButton")
 const fortuneBtn = document.getElementById("fortuneButton")
 const messageContainer = document.getElementById("message-container")
-const form = document.querySelector("form")
+// const form = document.querySelector("form")
 
 
 const baseURL = "http://localhost:4000/api/compliment"
