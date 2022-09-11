@@ -51,9 +51,6 @@
     background-color: snow;
   }
   
-  #price-container {
-    width: 85%;
-  }
   
   #radio-container {
     width: 100%;
@@ -62,21 +59,21 @@
     align-items: center;
   }
   
-  #houses-container {
+  #message-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
   }
   
-  .house-cover-image {
+  .message-cover-image {
     width: 300px; 
     height: 300px;
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
   }
   
-  .house-card {
+  .message-card {
     background-color: turquoise;
     width: 300px;
     margin: 20px; 
@@ -88,15 +85,6 @@
     border-top-right-radius: 15px;
   }
   
-  .house-address {
-    font-size: 18px;
-    margin: 5px 0;
-  }
-  
-  .house-price {
-    font-size: 15px;
-    margin: 5px 0;
-  }
   
   .btns-container {
     width: 100%; 
