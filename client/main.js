@@ -1,10 +1,15 @@
 const complimentBtn = document.getElementById("complimentButton")
 const fortuneBtn = document.getElementById("fortuneButton")
 const messageContainer = document.getElementById("message-container")
-// const form = document.querySelector("form")
+const posQuote = document.getElementById("quotes")
+
+const form = document.querySelector("form")
 
 
 const baseURL = "http://localhost:4000/api/compliment"
+
+const checkValue = element.options[element.selectedIndex].value
+const checkText = element.options[element.selectedIndex].text
 
 const messageCallback = ({ data: positiveDatabase }) => displayMessage(positiveDatabase)
 const errCallback = err => console.log(err)
@@ -13,6 +18,7 @@ const getAllMessage = () => axios.get(baseURL).then(messageCallback).catch(errCa
 const createMessage = body => axios.post(baseURL, body).then(messageCallback).catch(errCallback)
 const deleteMessage = id => axios.delete(`${baseURL}/${id}`).then(messageCallback).catch(errCallback)
 const updateMessage = (id, type) => axios.put(`${baseURL}/${id}`, {type}).then(messageCallback).catch(errCallback)
+
 
 
 
@@ -77,3 +83,14 @@ function displayMessage(arr) {
 form.addEventListener('submit', submitHandler)
 
 getAllMessage()
+
+posQuote.addEventListener("change", (e) => {
+    const value = e.target.value;
+    const text = element.options[element.selectedIndex].text;
+   
+    if (value) {
+      document.getElementById("pick").textContent = `Value Selected: ${value}`;
+    } else {
+      document.getElementById("pick").textContent = "";
+    }
+  });
