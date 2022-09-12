@@ -85,8 +85,7 @@
     border-top-right-radius: 15px;
   }
   
-  
-  .btns-container {
+.btns-container {
     width: 100%; 
     display: flex;
     justify-content: space-evenly;
