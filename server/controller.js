@@ -57,6 +57,5 @@ module.exports = {
         let index = positiveDatabase.findIndex(element => element.id === +req.params.id)
 
         
-}        
-
+    }        
 }
