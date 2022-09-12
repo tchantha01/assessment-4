@@ -13,7 +13,7 @@ const controller = require('./controller')
 const { getCompliment,  getFortune,  getMessage, deleteMessage, createMessage, updateMessage } = controller
 
 app.get("/api/compliment", getCompliment);
-app.get("/api/compliment", getFortune);
+app.get("/api/fortune", getFortune);
 app.get('/api/compliment', getMessage)
 app.delete('/api/compliment/:id', deleteMessage)
 app.post('/api/compliment', createMessage )

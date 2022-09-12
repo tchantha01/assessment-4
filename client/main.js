@@ -1,4 +1,4 @@
-
+// Step 1: Select HTML element
 
 const complimentBtn = document.getElementById("complimentButton")
 const fortuneBtn = document.getElementById("fortuneButton")
@@ -8,7 +8,7 @@ const posQuote = document.getElementById("quotes")
 const form = document.querySelector("form")
 
 
-const baseURL = "http://localhost:4000/api/compliment"
+const baseURL = "http://localhost:4000"
 
 const checkValue = element.options[element.selectedIndex].value
 const checkText = element.options[element.selectedIndex].text
@@ -24,7 +24,7 @@ const updateMessage = (id, type) => axios.put(`${baseURL}/${id}`, {type}).then(m
 
 
 
-
+// Step 2: Write the function
 const getCompliment = () => {
     axios.get("http://localhost:4000/api/compliment/")
         .then(res => {
@@ -33,17 +33,21 @@ const getCompliment = () => {
     });
 };
 
-complimentBtn.addEventListener('click', getCompliment)
+
 
 const getFortune = () => {
-    axios.get("http://localhost:4000/api/compliment/")
+    axios.get(`${baseURL}/api/fortune`)
         .then(res => {
+            // console.log(res.data)
             const data = res.data;
             alert(data);
-    });
+    })
+    .catch((err) => {
+        console.log(err)
+    })
 };
 
-fortuneBtn.addEventListener('click', getFortune)
+
 
 function submitHandler(e) {
     e.preventDefault()
@@ -82,9 +86,7 @@ function displayMessage(arr) {
     }
 }
 
-form.addEventListener('submit', submitHandler)
 
-getAllMessage()
 
 posQuote.addEventListener("change", (e) => {
     const value = e.target.value;
@@ -96,3 +98,11 @@ posQuote.addEventListener("change", (e) => {
       document.getElementById("pick").textContent = "";
     }
   });
+
+  // Step 3: Combine with event listener
+  
+  complimentBtn.addEventListener('click', getCompliment)
+  fortuneBtn.addEventListener('click', getFortune)
+  form.addEventListener('submit', submitHandler)
+
+    getAllMessage()
