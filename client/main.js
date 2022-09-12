@@ -45,6 +45,7 @@ const getFortune = () => {
     .catch((err) => {
         console.log(err)
     })
+    
 };
 
 
