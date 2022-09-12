@@ -1,3 +1,5 @@
+
+
 const complimentBtn = document.getElementById("complimentButton")
 const fortuneBtn = document.getElementById("fortuneButton")
 const messageContainer = document.getElementById("message-container")
